@@ -30,7 +30,7 @@ function turnLeft(rover){
         break;
       }
 
-  console.log("turnLeft was called!");
+  console.log("turnLeft was called! Actual direction is " + rover.direction);
 }
 
 // Function to make the rover turn right.
@@ -55,21 +55,23 @@ function turnRight(rover){
       break;
     }
   
-  console.log("turnRight was called!");
+  console.log("turnRight was called! Actual direction is " + rover.direction);
 }
 
 // Function to make the rover move forward.
 function moveForward(rover){
 
-    // If to control movement from rover. Last else is for "East". 
-    if (rover.direction === "N") {
+    // If to control movement from rover. Added grid control.
+    if (rover.direction === "N" && rover.y > 0) {
       rover.y += -1;
-    } else if (rover.direction === "W") {
+    } else if (rover.direction === "W" && rover.x > 0) {
       rover.x += -1;
-    } else if (rover.direction === "S") {
+    } else if (rover.direction === "S" && rover.y < 10) {
       rover.y += 1;
-    } else {
+    } else if (rover.direction === "E" && rover.x < 10) {
       rover.x += 1;
+    } else {
+      console.log("You are moving out of the grid. Turn and try again.");
     }
 
     rover.travelLog.push(rover.x, rover.y, "Next"); // Tracking the rover and keeping coordinates.
@@ -77,6 +79,29 @@ function moveForward(rover){
   
   console.log("moveForward was called, rover is at position X " + rover.x + " and position Y " + rover.y);
 }
+
+function moveBackward(rover) {
+
+  // If to control movement from rover. Last else is for "East". Added grid control.
+  if (rover.direction === "N" && rover.y < 10) {
+    rover.y += 1;
+  } else if (rover.direction === "W" && rover.x < 10) {
+    rover.x += 1;
+  } else if (rover.direction === "S" && rover.y > 0) {
+    rover.y += -1;
+  } else if (rover.direction === "E" && rover.x > 0) {
+    rover.x += -1;
+  } else {
+    console.log("You are moving out of the grid. Turn and try again.");
+  }
+
+  rover.travelLog.push(rover.x, rover.y, "Next"); // Tracking the rover and keeping coordinates.
+
+
+console.log("moveBackward was called, rover is at position X " + rover.x + " and position Y " + rover.y);
+}
+
+
 
 // This function gets a string (movement) and iterates it in order to call the correct function to move the rover.
 function commands(movement) {
@@ -100,4 +125,4 @@ function commands(movement) {
   }
   console.log(rover.travelLog); // Printing the final coordinates.
 }
-var movement = "ffrflf";
+var movement = "ffrflf"; // Just an example of rover's movement.
