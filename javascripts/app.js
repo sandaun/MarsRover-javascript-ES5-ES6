@@ -80,7 +80,7 @@ function moveForward(rover){
   console.log("moveForward was called, rover is at position X " + rover.x + " and position Y " + rover.y);
 }
 
-function moveBackward(rover) {
+function moveBackwards(rover) {
 
   // If to control movement from rover. Last else is for "East". Added grid control.
   if (rover.direction === "N" && rover.y < 10) {
@@ -121,8 +121,12 @@ function commands(movement) {
       case "l":
         turnLeft(rover);
         break;
+
+      case "b":
+        moveBackwards(rover);
+        break;
     }
   }
   console.log(rover.travelLog); // Printing the final coordinates.
 }
-var movement = "ffrflf"; // Just an example of rover's movement.
+var movement = "ffrbbflf"; // Just an example of rover's movement.
