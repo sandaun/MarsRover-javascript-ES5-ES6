@@ -24,7 +24,7 @@ Rover.prototype.turnLeft = function () {
       break;
     }
 
-  console.log("turnLeft was called! Actual direction is " + this.direction);
+  console.log(`turnLeft was called! Actual direction is ${this.direction}`);
 }
 
 Rover.prototype.turnRight = function () {
@@ -47,7 +47,7 @@ Rover.prototype.turnRight = function () {
       break;
     }
   
-  console.log("turnRight was called! Actual direction is " + this.direction);
+  console.log(`turnRight was called! Actual direction is ${this.direction}`);
 }
 
 Rover.prototype.moveForward = function () {
@@ -63,11 +63,10 @@ Rover.prototype.moveForward = function () {
   } else {
     console.log("You are moving out of the grid. Turn and try again.");
   }
-  console.log(this.travelLog);
   this.travelLog.push(this.position.x, this.position.y, "Next"); // Tracking the rover and keeping coordinates.
 
 
-console.log("moveForward was called, rover is at position X " + this.position.x + " and position Y " + this.position.y);
+console.log(`moveForward was called, rover is at position X ${this.position.x} and position Y ${this.position.y}`);
 }
 
 Rover.prototype.moveBackwards = function () {
@@ -86,7 +85,7 @@ Rover.prototype.moveBackwards = function () {
   this.travelLog.push(this.position.x, this.position.y, "Next"); // Tracking the rover and keeping coordinates.
 
 
-console.log("moveBackward was called, rover is at position X " + this.position.x + " and position Y " + this.position.y);
+console.log(`moveBackward was called, rover is at position X ${this.position.x} and position Y ${this.position.y}`);
 }
 
 function commands(movement, rover) {
