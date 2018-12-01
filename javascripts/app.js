@@ -8,6 +8,19 @@ var rover = {
 }
 // ======================
 
+var mars = [
+  [null, null, null, "alien", null, null, null, null, null, null],
+  [null, null, null, null, null, "alien", null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, "alien", null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  ["alien", null, null, null, null, null, null, null, null, null],
+];
+
 // Function to make the rover turn left.
 function turnLeft(rover){
 
@@ -82,7 +95,7 @@ function moveForward(rover){
 
 function moveBackwards(rover) {
 
-  // If to control movement from rover. Last else is for "East". Added grid control.
+  // If to control movement from rover. Added grid control.
   if (rover.direction === "N" && rover.y < 10) {
     rover.y += 1;
   } else if (rover.direction === "W" && rover.x < 10) {
@@ -100,7 +113,6 @@ function moveBackwards(rover) {
 
 console.log("moveBackward was called, rover is at position X " + rover.x + " and position Y " + rover.y);
 }
-
 
 
 // This function gets a string (movement) and iterates it in order to call the correct function to move the rover.
